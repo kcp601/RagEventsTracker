@@ -51,14 +51,16 @@
     <section class="success" id="about" data-ng-show="authentication.user">
         <div class="container">
         
-        	<button>Participants</button><button>Events</button><button>Activities</button>
+        	<button ng-click="goToParticipants()">Participants</button>
+        	<button>Events</button>
+        	<button>Activities</button>
 	    	<!-- <ul>
 				<h1>
-					<li><a href="/#!/todos">List Todos</a></li>
+					<li><a href="/#!/participants">List participants</a></li>
 				</h1>
 				
 				<h1>
-					<li><a href="/#!/todos/create">Create Todo</a></li>
+					<li><a href="/#!/participants/create">Create Todo</a></li>
 				</h1>
 			</ul>       -->  
         </div>
@@ -98,7 +100,7 @@
             </div>
             <div class="row">
                 <div class="col-lg-10 col-lg-offset-1">
-                    <p class="text-center">MEAN TODO is an application for managing your TODOs built on top of the awesome MEAN stack. The acompanying 4 part series blog posts on how to make this application can be found <a href="#">here</a>.</p>
+                    <p class="text-center">MEAN TODO is an application for managing your participants built on top of the awesome MEAN stack. The acompanying 4 part series blog posts on how to make this application can be found <a href="#">here</a>.</p>
                 </div>
                 <div class="col-lg-8 col-lg-offset-2 text-center">
                     <a href="https://github.com/Hitman666/MEAN_MVC_4thTutorial" class="btn btn-lg btn-outline">
