@@ -43,23 +43,27 @@
     </nav>
 
     <section data-ng-init="find()" class="container">
-     	<table class="submissions">
+     	<table st-table="rowCollection" class="table table-striped">
+     	<thead>
      		<tr class="tb-header">
-     			<td>Name</td>
-     			<td>Date of Birth</td>
-     			<td>Email</td>
-     			<td>Mobile Number</td>
-     			<td>Adventures</td>
-     			<td>Catch Up date (1)</td>
-     			<td>Catch Up date (2)</td>
-     			<td>Catch Up date (3)</td>
-     			<td>Attended Group meeting 1</td>
-     			<td>Attended Group meeting 2</td>
-     			<td>Total Fundraised</td>
-     			<td>Offline Total</td>
-     			<td>Just Giving Total</td>
-     			<td>Adventure Leader</td>
-     		<tr>
+     			<th>Name</th>
+     			<th>Date of Birth</th>
+     			<th>Email</th>
+     			<th>Mobile Number</th>
+     			<th>Adventures</th>
+     			<th>Catch Up date (1)</th>
+     			<th>Catch Up date (2)</th>
+     			<th>Catch Up date (3)</th>
+     			<th>Attended Group meeting 1</th>
+     			<th>Attended Group meeting 2</th>
+     			<th>Total Fundraised</th>
+     			<th>Offline Total</th>
+     			<th>Just Giving Total</th>
+     			<th>Adventure Leader</th>
+     			<th>Actions</th>
+     		</tr>
+     		</thead>
+     		<tbody>
   			<tr ng-repeat="participant in participants">
     			<td>{{ participant.Name }}</td>
     			<td>{{ participant.DateOfBirth }}</td>
@@ -75,7 +79,11 @@
     			<td>{{ participant.OfflineTotal }}</td>
     			<td>{{ participant.JustGivingTotal }}</td>
     			<td>{{ participant.AdventureLeader }}</td>
+    			<td class="action-column">
+                	<button type="button" class="btn btn-info btn-sm" ng-click="edit()">Edit</button>
+            	</td>
   			</tr>
+  			</tbody>
 		</table>
     </section>
 </div>
