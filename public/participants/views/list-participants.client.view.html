@@ -43,33 +43,39 @@
     </nav>
 
     <section data-ng-init="find()" class="container">
-         <h1>Edit Todo</h1>
-        <form data-ng-submit="update()" novalidate class="form-signin">
-            <div>
-                <label for="title" class="sr-only">Title</label>
-                <div>
-                    <input type="text" data-ng-model="participants.title" id="title" placeholder="Title" required autofocus class="form-control">
-                </div>
-            </div>
-
-            <div>
-                <div>
-                    Completed: <input type="checkbox" data-ng-model="participants.completed" ng-checked="participants.completed" name="completed" id="completed" class="form-control" />
-                </div>
-            </div>
-
-            <div>
-                <label for="comment" class="sr-only">Comment</label>
-                <div>
-                    <textarea data-ng-model="participants.comment" id="comment" cols="30" rows="10" placeholder="Comment" class="form-control"></textarea>
-                </div>
-            </div>
-            <div>
-                <button type="submit" class="btn btn-lg btn-primary btn-block">Update TODO</button>
-            </div>
-            <div data-ng-show="error">
-                <strong data-ng-bind="error"></strong>
-            </div>
-        </form> -->
+     	<table class="submissions">
+     		<tr class="tb-header">
+     			<td>Name</td>
+     			<td>Date of Birth</td>
+     			<td>Email</td>
+     			<td>Mobile Number</td>
+     			<td>Adventures</td>
+     			<td>Catch Up date (1)</td>
+     			<td>Catch Up date (2)</td>
+     			<td>Catch Up date (3)</td>
+     			<td>Attended Group meeting 1</td>
+     			<td>Attended Group meeting 2</td>
+     			<td>Total Fundraised</td>
+     			<td>Offline Total</td>
+     			<td>Just Giving Total</td>
+     			<td>Adventure Leader</td>
+     		<tr>
+  			<tr ng-repeat="participant in participants">
+    			<td>{{ participant.Name }}</td>
+    			<td>{{ participant.DateOfBirth }}</td>
+    			<td>{{ participant.Email }}</td>
+    			<td>{{ participant.MobileNo }}</td>
+    			<td>{{ participant.Adventures }}</td>
+    			<td>{{ participant.CatchUpDate1 }}</td>
+    			<td>{{ participant.CatchUpDate2 }}</td>
+    			<td>{{ participant.CatchUpDate3 }}</td>
+    			<td>{{ participant.AttendedGroupMeeting1 }}</td>
+    			<td>{{ participant.AttendedGroupMeeting2 }}</td>
+    			<td>{{ participant.TotalFundraised }}</td>
+    			<td>{{ participant.OfflineTotal }}</td>
+    			<td>{{ participant.JustGivingTotal }}</td>
+    			<td>{{ participant.AdventureLeader }}</td>
+  			</tr>
+		</table>
     </section>
 </div>
