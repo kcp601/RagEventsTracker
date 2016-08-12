@@ -28,9 +28,9 @@ angular.module('participants').controller('ParticipantsController', ['$scope', '
         };
 
         $scope.find = function() {
-            ParticipantsService.query(function (data){
-            	$scope.participants = data;
-            });
+        	$scope.participants = ParticipantsService.query();
+    
+        	console.log($scope.participants);
         };
 
         $scope.findOne = function() {
