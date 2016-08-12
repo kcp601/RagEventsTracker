@@ -1,5 +1,5 @@
-angular.module('participants').controller('ParticipantsController', ['$scope', '$routeParams', '$location', 'Authentication', 'ParticipantsService',
-    function($scope, $routeParams, $location, Authentication, ParticipantsService) {
+angular.module('participants').controller('ParticipantsController', ['$scope', '$routeParams', '$location', 'Authentication', 'ParticipantsService', 'ModalService',
+    function($scope, $routeParams, $location, Authentication, ParticipantsService, ModalService) {
         $scope.authentication = Authentication;       
         
         $scope.create = function() {
@@ -31,6 +31,22 @@ angular.module('participants').controller('ParticipantsController', ['$scope', '
         	$scope.participants = ParticipantsService.query();
     
         	console.log($scope.participants);
+        };
+        
+        $scope.edit = function(){
+        	// Just provide a template url, a controller and call 'showModal'.
+            ModalService.showModal({
+              templateUrl: "participants/views/edit-participant.client.view.html",
+              controller: "SampleModalController"
+            }).then(function(modal) {
+              // The modal object has the element built, if this is a bootstrap modal
+              // you can call 'modal' to show it, if it's a custom modal just show or hide
+              // it as you need to.
+              modal.element.modal();
+              modal.close.then(function(result) {
+                $scope.message = result ? "You said Yes" : "You said No";
+              });
+            });
         };
 
         $scope.findOne = function() {
@@ -64,3 +80,11 @@ angular.module('participants').controller('ParticipantsController', ['$scope', '
         };
     }
 ]);
+
+angular.module('participants').controller('SampleModalController', function($scope, close) {
+
+	 $scope.dismissModal = function(result) {
+	    close(result, 200); // close, but give 200ms for bootstrap to animate
+	 };
+
+	});
