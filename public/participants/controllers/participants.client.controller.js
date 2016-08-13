@@ -28,22 +28,25 @@ angular.module('participants').controller('ParticipantsController', ['$scope', '
         };
 
         $scope.find = function() {
+            // TODO need to be careful with this as $resource.query() will return an empty [] and promise until callback. Slow loads will result in empty table
         	$scope.participants = ParticipantsService.query();
-    
-        	console.log($scope.participants);
         };
         
-        $scope.edit = function(){
+        $scope.edit = function(participant){
         	// Just provide a template url, a controller and call 'showModal'.
             ModalService.showModal({
-              templateUrl: "participants/views/edit-participant.client.view.html",
-              controller: "SampleModalController"
+                templateUrl: "participants/views/edit-participant.client.view.html",
+                controller: "SampleModalController",
+                inputs: {
+                    participant: participant
+                }
             }).then(function(modal) {
               // The modal object has the element built, if this is a bootstrap modal
               // you can call 'modal' to show it, if it's a custom modal just show or hide
               // it as you need to.
               modal.element.modal();
               modal.close.then(function(result) {
+                  //TODO Participantresource .save on returned participant + success/fail message to user
                 $scope.message = result ? "You said Yes" : "You said No";
               });
             });
