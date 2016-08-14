@@ -476,3 +476,11 @@ footer {
 .completed {
     text-decoration: line-through;
 }
+
+.iconContainer {
+    text-align: center;
+}
+
+.iconText {
+    display: block;
+}

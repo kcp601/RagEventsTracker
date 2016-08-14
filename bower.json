@@ -7,6 +7,7 @@
     "angular-smart-table": "^2.1.8",
     "angular-route": "^1.5.8",
     "angular-resource": "^1.5.8",
-    "bootstrap": "^3.3.7"
+    "bootstrap": "^3.3.7",
+    "font-awesome": "^4.6.3"
   }
 }

@@ -1,6 +1,8 @@
 angular.module('example').controller('ExampleController', ['$scope', 'Authentication',
     function($scope, Authentication) {
         $scope.authentication = Authentication;
+
+        $scope.showParticipantDiv = false;
       
         $scope.goToParticipants = function(){
         	window.location = "/#!/participants"
