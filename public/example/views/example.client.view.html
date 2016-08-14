@@ -50,10 +50,34 @@
 
     <section class="success" id="about" data-ng-show="authentication.user">
         <div class="container">
-        
-        	<button ng-click="goToParticipants()">Participants</button>
-        	<button>Events</button>
-        	<button>Activities</button>
+
+            <div class="row">
+                <div class="iconContainer col-md-4" ng-click="showParticipantDiv = !showParticipantDiv">
+                    <i class="fa fa-5x fa-user"></i>
+                    <span class="iconText">Participants</span>
+                </div>
+                <div class="iconContainer col-md-4">
+                    <i class="fa fa-5x fa-calendar"></i>
+                    <span class="iconText">Events</span>
+                </div>
+                <div class="iconContainer col-md-4">
+                    <i class="fa fa-5x fa-bicycle"></i>
+                    <span class="iconText">Activities</span>
+                </div>
+            </div>
+
+            <br>
+
+            <div class="participantDiv row" ng-if="showParticipantDiv">
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <button class="btn btn-default">Participants#1</button>
+                    <button class="btn btn-success">Participants#2</button>
+                    <button class="btn btn-warning">Participants#3</button>
+               </div>
+                <div class="col-md-4"></div>
+
+            </div>
 	    	<!-- <ul>
 				<h1>
 					<li><a href="/#!/participants">List participants</a></li>
