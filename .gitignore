@@ -3,8 +3,6 @@
 bower_components
 node_modules
 public/js
-!public/js/static
-# Above ignores the static files - has to be on line after rule its negating
 
 # IDE specifics
 .project
