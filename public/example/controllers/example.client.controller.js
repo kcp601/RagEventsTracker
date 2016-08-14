@@ -15,5 +15,9 @@ angular.module('example').controller('ExampleController', ['$scope', 'Authentica
         $scope.goToActivities = function(){
         	window.location = "/#!/activities"
         }
+        
+        $scope.goToAdmins = function(){
+        	window.location = "/#!/admins"
+        }
     }
 ]);
