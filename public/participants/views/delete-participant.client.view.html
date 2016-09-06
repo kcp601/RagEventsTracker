@@ -1,0 +1,27 @@
+<div class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" ng-click="close('Cancel')" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Delete participant</h4>
+            </div>
+            <!--          <div class="modal-body" ng-controller="SampleModalController as ctrl">
+                        <md-autocomplete
+                                md-selected-item="ctrl.selectedItem"
+                                md-search-text="ctrl.searchText"
+                                md-items="participant in ctrl.find()"
+                                md-item-text="participant.display"
+                                md-min-length="0"
+                                placeholder="Who are you looking for?">
+                          <md-item-template>
+                            <span md-highlight-text="ctrl.searchText">{{participant.display}}</span>
+                          </md-item-template>
+                        </md-autocomplete>
+                      </div>-->
+            <div class="modal-footer">
+                <button type="button" ng-click="close('No')" class="btn btn-default" data-dismiss="modal">No</button>
+                <button type="button" ng-click="close('Yes')" class="btn btn-primary" data-dismiss="modal">Yes</button>
+            </div>
+        </div>
+    </div>
+</div>

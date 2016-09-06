@@ -1,5 +1,5 @@
 var appName = 'mean';
-var app = angular.module(appName, ['ngResource','ngRoute','smart-table', 'angularModalService','example', 'users', 'participants']);
+var app = angular.module(appName, ['ngResource','ngRoute','ngMaterial','ngAria','ngAnimate','smart-table', 'angularModalService','example', 'users', 'participants','events']);
 
 app.config(['$locationProvider', function($locationProvider) {
     $locationProvider.hashPrefix('!');
