@@ -32,10 +32,16 @@ angular.module('participants').controller('ParticipantsController', ['$scope', '
         };
 
         $scope.editParticipant = function(){
+            $scope.participants = ParticipantsService.query();
+            console.log($scope.participants);
+
          // Just provide a template url, a controller and call 'showModal'.
             ModalService.showModal({
                 templateUrl: "participants/views/edit-participant.client.view.html",
-                controller: "ParticipantsModalController"
+                controller: "ParticipantsModalController",
+                inputs: {
+                    participants: $scope.participants
+                }
             }).then(function(modal) {
                 // The modal object has the element built, if this is a bootstrap modal
                 // you can call 'modal' to show it, if it's a custom modal just show or hide

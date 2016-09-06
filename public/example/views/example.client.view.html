@@ -60,7 +60,7 @@
                     <i class="fa fa-5x fa-calendar"></i>
                     <span class="iconText">Events</span>
                 </div>
-                <div class="iconContainer col-md-4">
+                <div class="iconContainer col-md-4" ng-click="showAdventureDiv = !showAdventureDiv">
                     <i class="fa fa-5x fa-bicycle"></i>
                     <span class="iconText">Adventures</span>
                 </div>
@@ -113,6 +113,31 @@
                         <button class="btn btn-default" ng-click="addEvent()">EventsAdd</button>
                         <button class="btn btn-success" ng-click="editEvent()">EventsEdit</button>
                         <button class="btn btn-warning" ng-click="deleteEvent()">EventsDelete</button>
+                    </div>
+                    <div class="col-md-4"></div>
+                </div>
+            </div>
+
+            <div ng-controller="AdventuresController">
+                <p ng-if="showAdventureDiv">Reports</p>
+                <div class="adventureDiv row" ng-if="showAdventureDiv">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-8">
+                        <button class="btn btn-default" ng-click="simplePDF()">AdventuresReport#1</button>
+                        <button class="btn btn-success">AdventuresReport#2</button>
+                        <button class="btn btn-warning">AdventuresReport#3</button>
+                    </div>
+                    <div class="col-md-4"></div>
+                </div>
+
+                <br>
+                <p ng-if="showAdventureDiv">Management</p>
+                <div class="adventureDiv row" ng-if="showAdventureDiv">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-8">
+                        <button class="btn btn-default" ng-click="addAdventure()">AdventuresAdd</button>
+                        <button class="btn btn-success" ng-click="editAdventures()">AdventuresEdit</button>
+                        <button class="btn btn-warning" ng-click="deleteAdventure()">AdventuresDelete</button>
                     </div>
                     <div class="col-md-4"></div>
                 </div>
