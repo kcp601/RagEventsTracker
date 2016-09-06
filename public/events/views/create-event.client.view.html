@@ -1,0 +1,33 @@
+<div class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" ng-click="close('Cancel')" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Create an event</h4>
+            </div>
+            <div class="modal-body">
+                <form>
+                    Event Name <input type="text" ng-model="Name" title="Name"><br>
+                    Date Of Event <input type="text" ng-model="DateOfEvent" title="Date Of Event"><br>
+                    Amount Raised <input type="text" ng-model="AmountRaised" title="AmountRaised"><br>
+                    <!-- Should be a drop down box... \/ -->
+                    Banking Method <input type="text" ng-model="BankingMethod" title="BankingMethod"><br>
+                    Has been banked? <input type="checkbox" ng-model="HasBeenBanked" title="Has Been Banked"><br>
+                    Banked On <input type="text" ng-model="BankedOn"><br>
+                    <!-- Bigger input box -->
+                    Notes <input type="text" ng-model="Notes"><br>
+                    <!-- Make a date picker \/ -->
+                    Permit Application Date <input type="text" ng-model="PermitApplicationDate"><br>
+                    Permit Date For <input type="text" ng-model="PermitDateFor"><br>
+                    <!-- Attachment input (can I insert a file here?) \/ -->
+                    Permit Attachment <input type="text" ng-model="PermitAttachment"><br>
+                    City/Town Permit is for <input type="text" ng-model="CityTownPermitFor"><br>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" ng-click="close('Cancel')" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button type="button" ng-click="create()" class="btn btn-primary" data-dismiss="modal">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
