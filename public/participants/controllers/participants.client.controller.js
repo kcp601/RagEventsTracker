@@ -1,93 +1,70 @@
 angular.module('participants').controller('ParticipantsController', ['$scope', '$routeParams', '$location', 'Authentication', 'ParticipantsService', 'ModalService',
     function($scope, $routeParams, $location, Authentication, ParticipantsService, ModalService) {
         $scope.authentication = Authentication;       
-        
-        $scope.create = function() {
-            var participant = new ParticipantsService({
-                Name: "Steve",
-                DateOfBirth: "14/2/1933",
-                Email: "lol@lol.com",
-                MobileNo: "072525252527",
-                Adventures: "N/A",
-                CatchUpDate1: "12/3/2012",
-                CatchUpDate2: "13/3/2013",
-                CatchUpDate3: "14/3/2014",
-                AttendedGroupMeeting1: 1,
-                AttendedGroupMeeting2: 0,
-                TotalFundraised: "122.33",
-                OfflineTotal: "122.22",
-                JustGivingTotal: "122",
-                AdventureLeader: "Alan"
-            });
 
-            participant.$save(function(response) {
-                $location.path('participants/' + response._id);
-            }, function(errorResponse) {
-                $scope.error = errorResponse.data.message;
+        $scope.simplePDF = function() {
+            //  $scope.order.showPopupAddedToCart = !$scope.order.showPopupAddedToCart;
+            var doc = new jsPDF();
+            doc.text(20, 20, 'Hello world!');
+            doc.text(20, 30, 'This is client-side Javascript, pumping out a PDF.');
+            doc.addPage();
+            doc.text(20, 20, 'Do you like that?');
+
+            // Save the PDF
+            doc.save('Test.pdf');
+        };
+
+        $scope.addParticipant = function(){
+            // Just provide a template url, a controller and call 'showModal'.
+            ModalService.showModal({
+                templateUrl: "participants/views/create-participant.client.view.html",
+                controller: "CreateParticipantModalController"
+            }).then(function(modal) {
+                // The modal object has the element built, if this is a bootstrap modal
+                // you can call 'modal' to show it, if it's a custom modal just show or hide
+                // it as you need to.
+                modal.element.modal();
+                modal.close.then(function(result) {
+                    //TODO Participantresource .save on returned participant + success/fail message to user
+                    $scope.message = result ? "You said Yes" : "You said No";
+                });
             });
         };
 
-        $scope.find = function() {
-            // TODO need to be careful with this as $resource.query() will return an empty [] and promise until callback. Slow loads will result in empty table
-        	$scope.participants = ParticipantsService.query();
-        };
-        
-        $scope.edit = function(participant){
-        	// Just provide a template url, a controller and call 'showModal'.
+        $scope.editParticipant = function(){
+         // Just provide a template url, a controller and call 'showModal'.
             ModalService.showModal({
                 templateUrl: "participants/views/edit-participant.client.view.html",
-                controller: "SampleModalController",
-                inputs: {
-                    participant: participant
-                }
+                controller: "ParticipantsModalController"
             }).then(function(modal) {
-              // The modal object has the element built, if this is a bootstrap modal
-              // you can call 'modal' to show it, if it's a custom modal just show or hide
-              // it as you need to.
-              modal.element.modal();
-              modal.close.then(function(result) {
-                  //TODO Participantresource .save on returned participant + success/fail message to user
-                $scope.message = result ? "You said Yes" : "You said No";
-              });
-            });
-        };
-
-        $scope.findOne = function() {
-            $scope.participants = ParticipantsService.get({
-                participantId: $routeParams.participantId
-            });
-        };
-
-        $scope.update = function() {
-            $scope.participant.$update(function() {
-                $location.path('participants/' + $scope.todo._id);
-            }, function(errorResponse) {
-                $scope.error = errorResponse.data.message;
-            });
-        };
-
-        $scope.delete = function(participant) {
-            if (participant) {
-            	participant.$remove(function() {
-                    for (var i in $scope.participants) {
-                        if ($scope.participants[i] === participant) {
-                            $scope.participants.splice(i, 1);
-                        }
-                    }
+                // The modal object has the element built, if this is a bootstrap modal
+                // you can call 'modal' to show it, if it's a custom modal just show or hide
+                // it as you need to.
+                modal.element.modal();
+                modal.close.then(function(result) {
+                    //TODO Participantresource .save on returned participant + success/fail message to user
+                    $scope.message = result ? "You said Yes" : "You said No";
                 });
-            } else {
-                $scope.participant.$remove(function() {
-                    $location.path('participants');
+            });
+         };
+
+        $scope.deleteParticipant = function(){
+            // Just provide a template url, a controller and call 'showModal'.
+            ModalService.showModal({
+                // TODO Change so the edit is a delete html page
+                templateUrl: "participants/views/delete-participant.client.view.html",
+                controller: "ParticipantsModalController"
+            }).then(function(modal) {
+                // The modal object has the element built, if this is a bootstrap modal
+                // you can call 'modal' to show it, if it's a custom modal just show or hide
+                // it as you need to.
+                modal.element.modal();
+                modal.close.then(function(result) {
+                    //TODO Participantresource .save on returned participant + success/fail message to user
+                    $scope.message = result ? "You said Yes" : "You said No";
                 });
-            }
+            });
         };
+
     }
 ]);
-
-angular.module('participants').controller('SampleModalController', function($scope, close) {
-
-	 $scope.dismissModal = function(result) {
-	    close(result, 200); // close, but give 200ms for bootstrap to animate
-	 };
-
-	});
