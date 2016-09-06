@@ -12,5 +12,5 @@ module.exports = function(app) {
         .put(users.requiresLogin, events.hasAuthorization, events.update)
         .delete(users.requiresLogin, events.hasAuthorization, events.delete);
 
-    app.param('eventId', events.participantByID);
+    app.param('eventId', events.eventByID);
 };

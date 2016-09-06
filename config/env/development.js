@@ -2,5 +2,5 @@ var port = 1337;
 
 module.exports = {
     port: port,
-    db: 'mongodb://localhost/participants'
+    db: 'mongodb://localhost/details'
 };
