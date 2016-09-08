@@ -55,10 +55,14 @@ exports.participantByID = function(req, res, next, id) {
 };
 
 exports.update = function(req, res) {
+    console.log(req.participant);
+
     var participant = req.participant;
     participant.title = req.body.title;
     participant.comment = req.body.comment;
     participant.completed = req.body.completed;
+    console.log("Participant:");
+    console.log(participant.Name);
 
     participant.save(function(err) {
         if (err) {
