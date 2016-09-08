@@ -8,6 +8,9 @@ angular.module('participants').controller('EditParticipantsModalController', fun
     };
 
     $scope.save = function() {
+
+        console.log($scope.participant);
+
         $scope.participant.$update(function() {
             $location.path('participants/' + $scope.participant._id);
         }, function(errorResponse) {

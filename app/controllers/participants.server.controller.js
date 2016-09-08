@@ -55,14 +55,28 @@ exports.participantByID = function(req, res, next, id) {
 };
 
 exports.update = function(req, res) {
-    console.log(req.participant);
+
+    console.log("req");
+    console.log(req.body.Name);
 
     var participant = req.participant;
     participant.title = req.body.title;
     participant.comment = req.body.comment;
     participant.completed = req.body.completed;
-    console.log("Participant:");
-    console.log(participant.Name);
+    participant.Name = req.body.Name;
+    participant.DateOfBirth = req.body.DateOfBirth;
+    participant.Email = req.body.Email;
+    participant.MobileNo = req.body.MobileNo;
+    participant.Adventures = req.body.Adventures;
+    participant.CatchUpDate1 = req.body.CatchUpDate1;
+    participant.CatchUpDate2 = req.body.CatchUpDate2;
+    participant.CatchUpDate3 = req.body.CatchUpDate3;
+    participant.AttendedGroupMeeting1 = req.body.AttendedGroupMeeting1;
+    participant.AttendedGroupMeeting2 = req.body.AttendedGroupMeeting2;
+    participant.TotalFundraised = req.body.TotalFundraised;
+    participant.OfflineTotal = req.body.OfflineTotal;
+    participant.JustGivingTotal = req.body.JustGivingTotal;
+    participant.AdventureLeader = req.body.AdventureLeader;
 
     participant.save(function(err) {
         if (err) {
