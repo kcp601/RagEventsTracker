@@ -3,11 +3,11 @@ angular.module('participants').config(['$routeProvider',
         $routeProvider.
         when('/participants', {
             templateUrl: 'participants/views/list-participants.client.view.html'
-        });
-/*        when('/participants/create', {
-            templateUrl: 'participants/views/create-todo.client.view.html'
         }).
-        when('/participants/:todoId', {
+        when('/participants/edit', {
+            templateUrl: 'participants/views/create-participant.client.view.html'
+        });
+/*        when('/participants/:todoId', {
             templateUrl: 'participants/views/view-todo.client.view.html'
         }).
         when('/participants/:todoId/edit', {

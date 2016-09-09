@@ -1,17 +1,32 @@
 <div class="modal fade">
-      <div class="modal-dialog">
+    <div class="modal-dialog">
         <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" ng-click="close('Cancel')" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <h4 class="modal-title">Edit participant</h4>
-          </div>
-          <div class="modal-body">
-            <p>It's your call...</p>
-          </div>
-          <div class="modal-footer">
-            <button type="button" ng-click="close('No')" class="btn btn-default" data-dismiss="modal">No</button>
-            <button type="button" ng-click="close('Yes')" class="btn btn-primary" data-dismiss="modal">Yes</button>
-          </div>
+            <div class="modal-header">
+                <button type="button" class="close" ng-click="close('Cancel')" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Edit a participant</h4>
+            </div>
+            <div class="modal-body">
+                <form>
+                    Name <input type="text" title="Name" ng-model="participant.Name"><br>
+                    Date Of Birth <input type="text" ng-model="participant.DateOfBirth" title="Date Of Birth"><br>
+                    Email Address <input type="text" ng-model="participant.Email" title="Email Address"><br>
+                    Mobile Number <input type="text" ng-model="participant.MobileNo" title="Mobile Number"><br>
+                    Adventure <input type="text" ng-model="participant.Adventure" title="adventure"><br>
+                    Catch Up Date 1 <input type="text" ng-model="participant.CatchUpDate1"><br>
+                    Catch Up Date 2 <input type="text" ng-model="participant.CatchUpDate2"><br>
+                    Catch Up Date 3 <input type="text" ng-model="participant.CatchUpDate3"><br>
+                    Attended Group Meeting 1 <input type="checkbox" ng-model="participant.AttendedGroupMeeting1"><br>
+                    Attended Group Meeting 2 <input type="checkbox" ng-model="participant.AttendedGroupMeeting2"><br>
+                    Total Fundraised <input type="text" ng-model="participant.TotalFundraised"><br>
+                    Offline Total <input type="text" ng-model="participant.OfflineTotal"><br>
+                    Just Giving Total <input type="text" ng-model="participant.JustGivingTotal"><br>
+                    Adventure Leader<input type="text" ng-model="participant.AdventureLeader">
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" ng-click="close('Cancel')" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button type="button" ng-click="save()" class="btn btn-primary" data-dismiss="modal">Save</button>
+            </div>
         </div>
-      </div>
     </div>
+</div>

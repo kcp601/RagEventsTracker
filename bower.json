@@ -1,7 +1,14 @@
 {
-	"name": "RagEventTracker",
-	"version": "1.0.0",
-	"dependencies": {
-		"angular": "~1.5.8"
-	}
+  "name": "RagEventTracker",
+  "version": "1.0.0",
+  "dependencies": {
+    "angular": "~1.5.8",
+    "angular-modal-service": "^0.10.1",
+    "angular-smart-table": "^2.1.8",
+    "angular-route": "^1.5.8",
+    "angular-resource": "^1.5.8",
+    "bootstrap": "^3.3.7",
+    "font-awesome": "^4.6.3",
+    "jspdf": "^1.2.61"
+  }
 }

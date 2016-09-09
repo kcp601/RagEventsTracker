@@ -9,7 +9,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#!/">MEAN TODO</a>
+                <a class="navbar-brand" href="#!/">Rag Events Tracker</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -39,9 +39,9 @@
                 <div class="col-lg-12">
                     <img class="img-responsive" src="img/profile.png" alt="">
                     <div class="intro-text">
-                        <span class="name">MEAN TODO</span>
+                        <span class="name">Rag Events Tracker</span>
                         <hr class="star-light">
-                        <span class="skills">Mongo Express Node Angular powered TODO list</span>
+                        <span class="skills">Monitor, Alter and Report on Participants, Events and Adventures!</span>
                     </div>
                 </div>
             </div>
@@ -50,24 +50,103 @@
 
     <section class="success" id="about" data-ng-show="authentication.user">
         <div class="container">
-        
-        	<button ng-click="goToParticipants()">Participants</button>
-        	<button>Events</button>
-        	<button>Activities</button>
-	    	<!-- <ul>
-				<h1>
-					<li><a href="/#!/participants">List participants</a></li>
-				</h1>
-				
-				<h1>
-					<li><a href="/#!/participants/create">Create Todo</a></li>
-				</h1>
-			</ul>       -->  
+
+            <div class="row">
+                <div class="iconContainer col-md-4" ng-click="showParticipantDiv = !showParticipantDiv">
+                    <i class="fa fa-5x fa-user"></i>
+                    <span class="iconText">Participants</span>
+                </div>
+                <div class="iconContainer col-md-4" ng-click="showEventDiv = !showEventDiv">
+                    <i class="fa fa-5x fa-calendar"></i>
+                    <span class="iconText">Events</span>
+                </div>
+                <div class="iconContainer col-md-4" ng-click="showAdventureDiv = !showAdventureDiv">
+                    <i class="fa fa-5x fa-bicycle"></i>
+                    <span class="iconText">Adventures</span>
+                </div>
+            </div>
+
+            <br>
+
+            <div ng-controller="ParticipantsController">
+                <p ng-if="showParticipantDiv">Reports</p>
+                <div class="participantDiv row" ng-if="showParticipantDiv">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-8">
+                        <button class="btn btn-default" ng-click="simplePDF()">ParticipantsReport#1</button>
+                        <button class="btn btn-success">ParticipantsReport#2</button>
+                        <button class="btn btn-warning">ParticipantsReport#3</button>
+                    </div>
+                    <div class="col-md-4"></div>
+                </div>
+
+                <br>
+                <p ng-if="showParticipantDiv">Management</p>
+                <div class="participantDiv row" ng-if="showParticipantDiv">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-8">
+                        <button class="btn btn-default" ng-click="addParticipant()">ParticipantsAdd</button>
+                        <button class="btn btn-success" ng-click="editParticipant()">ParticipantsEdit</button>
+                        <button class="btn btn-warning" ng-click="deleteParticipant()">ParticipantsDelete</button>
+                    </div>
+                    <div class="col-md-4"></div>
+                </div>
+            </div>
+
+            <div ng-controller="EventsController">
+                <p ng-if="showEventDiv">Reports</p>
+                <div class="eventDiv row" ng-if="showEventDiv">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-8">
+                        <button class="btn btn-default" ng-click="simplePDF()">EventsReport#1</button>
+                        <button class="btn btn-success">EventsReport#2</button>
+                        <button class="btn btn-warning">EventsReport#3</button>
+                    </div>
+                    <div class="col-md-4"></div>
+                </div>
+
+                <br>
+                <p ng-if="showEventDiv">Management</p>
+                <div class="eventDiv row" ng-if="showEventDiv">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-8">
+                        <button class="btn btn-default" ng-click="addEvent()">EventsAdd</button>
+                        <button class="btn btn-success" ng-click="editEvent()">EventsEdit</button>
+                        <button class="btn btn-warning" ng-click="deleteEvent()">EventsDelete</button>
+                    </div>
+                    <div class="col-md-4"></div>
+                </div>
+            </div>
+
+            <div ng-controller="AdventuresController">
+                <p ng-if="showAdventureDiv">Reports</p>
+                <div class="adventureDiv row" ng-if="showAdventureDiv">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-8">
+                        <button class="btn btn-default" ng-click="simplePDF()">AdventuresReport#1</button>
+                        <button class="btn btn-success">AdventuresReport#2</button>
+                        <button class="btn btn-warning">AdventuresReport#3</button>
+                    </div>
+                    <div class="col-md-4"></div>
+                </div>
+
+                <br>
+                <p ng-if="showAdventureDiv">Management</p>
+                <div class="adventureDiv row" ng-if="showAdventureDiv">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-8">
+                        <button class="btn btn-default" ng-click="addAdventure()">AdventuresAdd</button>
+                        <button class="btn btn-success" ng-click="editAdventure()">AdventuresEdit</button>
+                        <button class="btn btn-warning" ng-click="deleteAdventure()">AdventuresDelete</button>
+                    </div>
+                    <div class="col-md-4"></div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Portfolio Grid Section -->
-    <section data-ng-show="!authentication.user">
+   <!-- Portfolio Grid Section -->
+<!--    <section data-ng-show="!authentication.user">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
@@ -87,10 +166,10 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section>-->
 
     <!-- About Section -->
-    <section class="success" id="about" data-ng-show="!authentication.user">
+<!--    <section class="success" id="about" data-ng-show="!authentication.user">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
@@ -109,5 +188,5 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section>-->
 </div>

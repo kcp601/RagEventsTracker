@@ -1,1 +1,1 @@
-angular.module('participants', []);
+angular.module('participants',[]);

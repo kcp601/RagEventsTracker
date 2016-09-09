@@ -1,6 +1,6 @@
-angular.module('participants').controller('ParticipantsController', ['$scope', '$routeParams', '$location', 'Authentication', 'ParticipantsService', 'ModalService',
-    function($scope, $routeParams, $location, Authentication, ParticipantsService, ModalService) {
-        $scope.authentication = Authentication;       
+angular.module('adventures').controller('AdventuresController', ['$scope', '$routeParams', '$location', 'Authentication', 'AdventuresService', 'ModalService',
+    function($scope, $routeParams, $location, Authentication, AdventuresService, ModalService) {
+        $scope.authentication = Authentication;
 
         $scope.simplePDF = function() {
             //  $scope.order.showPopupAddedToCart = !$scope.order.showPopupAddedToCart;
@@ -14,11 +14,11 @@ angular.module('participants').controller('ParticipantsController', ['$scope', '
             doc.save('Test.pdf');
         };
 
-        $scope.addParticipant = function(){
+        $scope.addAdventure = function(){
             // Just provide a template url, a controller and call 'showModal'.
             ModalService.showModal({
-                templateUrl: "participants/views/create-participant.client.view.html",
-                controller: "CreateParticipantModalController"
+                templateUrl: "adventures/views/create-adventure.client.view.html",
+                controller: "CreateAdventureModalController"
             }).then(function(modal) {
                 // The modal object has the element built, if this is a bootstrap modal
                 // you can call 'modal' to show it, if it's a custom modal just show or hide
@@ -31,43 +31,42 @@ angular.module('participants').controller('ParticipantsController', ['$scope', '
             });
         };
 
-        $scope.editParticipant = function(){
-            $scope.participants = ParticipantsService.query();
-            console.log($scope.participants);
+        $scope.editAdventure = function(){
+            $scope.adventures = AdventuresService.query();
+            console.log($scope.adventures);
 
-         // Just provide a template url, a controller and call 'showModal'.
+            // Just provide a template url, a controller and call 'showModal'.
             ModalService.showModal({
-                templateUrl: "participants/views/select-participant.client.view.html",
-                controller: "ParticipantsModalController"
+                templateUrl: "adventures/views/select-adventure.client.view.html",
+                controller: "AdventuresModalController"
             }).then(function(modal) {
                 // The modal object has the element built, if this is a bootstrap modal
                 // you can call 'modal' to show it, if it's a custom modal just show or hide
                 // it as you need to.
                 modal.element.modal();
                 modal.close.then(function(result) {
-                    //TODO Participantresource .save on returned participant + success/fail message to user
+                    //TODO Adventureresource .save on returned participant + success/fail message to user
                     $scope.message = result ? "You said Yes" : "You said No";
                 });
             });
-         };
+        };
 
-        $scope.deleteParticipant = function(){
+        $scope.deleteAdventure = function(){
             // Just provide a template url, a controller and call 'showModal'.
             ModalService.showModal({
                 // TODO Change so the edit is a delete html page
-                templateUrl: "participants/views/delete-participant.client.view.html",
-                controller: "ParticipantsModalController"
+                templateUrl: "adventures/views/delete-adventure.client.view.html",
+                controller: "AdventuresModalController"
             }).then(function(modal) {
                 // The modal object has the element built, if this is a bootstrap modal
                 // you can call 'modal' to show it, if it's a custom modal just show or hide
                 // it as you need to.
                 modal.element.modal();
                 modal.close.then(function(result) {
-                    //TODO Participantresource .save on returned participant + success/fail message to user
+                    //TODO Adventureresource .save on returned participant + success/fail message to user
                     $scope.message = result ? "You said Yes" : "You said No";
                 });
             });
         };
-
     }
 ]);

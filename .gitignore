@@ -1,1 +1,11 @@
-node_modules/
+# Dependencies
+
+bower_components
+node_modules
+public/js
+
+# IDE specifics
+.project
+.idea
+*.iml
+.settings
