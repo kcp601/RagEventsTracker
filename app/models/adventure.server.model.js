@@ -12,13 +12,19 @@ var AdventureSchema =  new Schema({
         trim: true
     },
     DepartDate: {
-        type: Date
+        type: String,
+        default: '',
+        trim: true
     },
     InfoMeetingDate: {
-        type: Date
+        type: String,
+        default: '',
+        trim: true
     },
     WelcomeMeetingDate: {
-        type: Date
+        type: String,
+        default: '',
+        trim: true
     },
     FundraisingTarget: {
         type: String,
@@ -61,7 +67,9 @@ var AdventureSchema =  new Schema({
         trim: true
     },*/
     FundraisingTarget1Date: {
-        type: Date
+        type: String,
+        default: '',
+        trim: true
     },
     FundraisingTarget1Amount: {
         type: String,
@@ -69,7 +77,9 @@ var AdventureSchema =  new Schema({
         trim: true
     },
     FundraisingTarget2Date: {
-        type: Date
+        type: String,
+        default: '',
+        trim: true
     },
     FundraisingTarget2Amount: {
         type: String,
@@ -77,7 +87,9 @@ var AdventureSchema =  new Schema({
         trim: true
     },
     FundraisingTarget3Date: {
-        type: Date
+        type: String,
+        default: '',
+        trim: true
     },
     FundraisingTarget3Amount: {
         type: String,
@@ -100,10 +112,14 @@ var AdventureSchema =  new Schema({
         trim: true
     },
     GroupMeetingDate1: {
-        type: Date
+        type: String,
+        default: '',
+        trim: true
     },
     GroupMeetingDate2: {
-        type: Date
+        type: String,
+        default: '',
+        trim: true
     },
     creator: {
         type: Schema.ObjectId,

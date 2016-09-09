@@ -41,10 +41,14 @@ var EventSchema =  new Schema({
         trim: true
     },
     PermitApplicationDate: {
-        type: Date
+        type: String,
+        default: '',
+        trim: true
     },
     PermitDateFor: {
-        type: Date
+        type: String,
+        default: '',
+        trim: true
     },
     PermitAttachment: {
         //TODO
