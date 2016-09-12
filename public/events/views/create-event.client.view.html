@@ -13,6 +13,7 @@
                     <!-- Should be a drop down box... \/ -->
                     Banking Method <input type="text" ng-model="BankingMethod" title="BankingMethod"><br>
                     Has been banked? <input type="checkbox" ng-model="HasBeenBanked" title="Has Been Banked"><br>
+                    Participant <select data-ng-options="participant.Name for participant in participants" data-ng-model="Participant"></select><br>
                     Banked On <input type="text" ng-model="BankedOn"><br>
                     <!-- Bigger input box -->
                     Notes <input type="text" ng-model="Notes"><br>

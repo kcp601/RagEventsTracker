@@ -12,7 +12,7 @@ angular.module('participants').controller('ParticipantsController', ['$scope', '
 
             // Save the PDF
             doc.save('Test.pdf');
-        };
+        } ;
 
         $scope.addParticipant = function(){
             // Just provide a template url, a controller and call 'showModal'.
@@ -33,7 +33,6 @@ angular.module('participants').controller('ParticipantsController', ['$scope', '
 
         $scope.editParticipant = function(){
             $scope.participants = ParticipantsService.query();
-            console.log($scope.participants);
 
          // Just provide a template url, a controller and call 'showModal'.
             ModalService.showModal({

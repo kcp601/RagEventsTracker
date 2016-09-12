@@ -1,4 +1,5 @@
 var mongoose = require('mongoose'),
+    ParticipantSchema = require('../models/participant.server.model'),
     Schema = mongoose.Schema;
 
 var EventSchema =  new Schema({
@@ -35,6 +36,9 @@ var EventSchema =  new Schema({
         default: '',
         trim: true
     },
+    Participant: [
+        ParticipantSchema
+    ],
     Notes: {
         type: String,
         default: '',

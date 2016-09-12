@@ -1,4 +1,6 @@
-angular.module('participants').controller('CreateParticipantModalController', function($scope, close, ParticipantsService) {
+angular.module('participants').controller('CreateParticipantModalController', function($scope, close, ParticipantsService, AdventuresService) {
+
+        $scope.adventures = AdventuresService.query();
 
         $scope.dismissModal = function(result) {
             close(result, 500); // close, but give 200ms for bootstrap to animate
@@ -11,7 +13,7 @@ angular.module('participants').controller('CreateParticipantModalController', fu
                 DateOfBirth: $scope.DateOfBirth,
                 Email: $scope.Email,
                 MobileNo: $scope.MobileNo,
-                Adventures: $scope.Adventures,
+                Adventure: $scope.Adventure,
                 CatchUpDate1: $scope.CatchUpDate1,
                 CatchUpDate2: $scope.CatchUpDate2,
                 CatchUpDate3: $scope.CatchUpDate3,
