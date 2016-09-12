@@ -1,5 +1,6 @@
 var mongoose = require('mongoose'),
-    Schema = mongoose.Schema;
+    Schema = mongoose.Schema,
+    AdventureSchema = require('../models/adventure.server.model');
 
 var participantSchema = new Schema({
     created: {
@@ -28,9 +29,10 @@ var participantSchema = new Schema({
     	default: '',
     	trim: true
     },
-    Adventures: {
+    Adventure: [
     	// Needs a reference to the adventures table!
-    },
+        AdventureSchema
+    ],
     CatchUpDate1: {
     	type: String,
 		default: '',

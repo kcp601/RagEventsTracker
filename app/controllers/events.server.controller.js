@@ -59,6 +59,17 @@ exports.update = function(req, res) {
     event.title = req.body.title;
     event.comment = req.body.comment;
     event.completed = req.body.completed;
+    event.Name = req.body.Name;
+    event.DateOfEvent = req.body.DateOfEvent;
+    event.AmountRaised = req.body.AmountRaised;
+    event.BankingMethod = req.body.BankingMethod;
+    event.HasBeenBanked = req.body.HasBeenBanked;
+    event.Participant = req.body.Participant;
+    event.BankedOn = req.body.BankedOn;
+    event.Notes = req.body.Notes;
+    event.PermitApplicationDate = req.body.PermitApplicationDate;
+    event.PermitAttachment = req.body.PermitAttachment;
+    event.CityTownPermitFor = req.body.CityTownPermitFor;
 
     event.save(function(err) {
         if (err) {

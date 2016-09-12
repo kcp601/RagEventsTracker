@@ -11,7 +11,7 @@
                     Date Of Birth <input type="text" ng-model="DateOfBirth" title="Date Of Birth"><br>
                     Email Address <input type="text" ng-model="Email" title="Email Address"><br>
                     Mobile Number <input type="text" ng-model="MobileNo" title="Mobile Number"><br>
-                    Adventure <input type="text" ng-model="Adventure" title="adventure"><br>
+                    Adventure <select data-ng-options="adventure.Name for adventure in adventures" data-ng-model="Adventure"></select><br>
                     Catch Up Date 1 <input type="text" ng-model="CatchUpDate1"><br>
                     Catch Up Date 2 <input type="text" ng-model="CatchUpDate2"><br>
                     Catch Up Date 3 <input type="text" ng-model="CatchUpDate3"><br>

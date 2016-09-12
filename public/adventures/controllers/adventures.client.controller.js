@@ -30,5 +30,43 @@ angular.module('adventures').controller('AdventuresController', ['$scope', '$rou
                 });
             });
         };
+
+        $scope.editAdventure = function(){
+            $scope.adventures = AdventuresService.query();
+            console.log($scope.adventures);
+
+            // Just provide a template url, a controller and call 'showModal'.
+            ModalService.showModal({
+                templateUrl: "adventures/views/select-adventure.client.view.html",
+                controller: "AdventuresModalController"
+            }).then(function(modal) {
+                // The modal object has the element built, if this is a bootstrap modal
+                // you can call 'modal' to show it, if it's a custom modal just show or hide
+                // it as you need to.
+                modal.element.modal();
+                modal.close.then(function(result) {
+                    //TODO Adventureresource .save on returned participant + success/fail message to user
+                    $scope.message = result ? "You said Yes" : "You said No";
+                });
+            });
+        };
+
+        $scope.deleteAdventure = function(){
+            // Just provide a template url, a controller and call 'showModal'.
+            ModalService.showModal({
+                // TODO Change so the edit is a delete html page
+                templateUrl: "adventures/views/delete-adventure.client.view.html",
+                controller: "AdventuresModalController"
+            }).then(function(modal) {
+                // The modal object has the element built, if this is a bootstrap modal
+                // you can call 'modal' to show it, if it's a custom modal just show or hide
+                // it as you need to.
+                modal.element.modal();
+                modal.close.then(function(result) {
+                    //TODO Adventureresource .save on returned participant + success/fail message to user
+                    $scope.message = result ? "You said Yes" : "You said No";
+                });
+            });
+        };
     }
 ]);

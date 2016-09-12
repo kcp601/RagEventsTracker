@@ -1,4 +1,5 @@
 var mongoose = require('mongoose'),
+    ParticipantSchema = require('../models/participant.server.model'),
     Schema = mongoose.Schema;
 
 var EventSchema =  new Schema({
@@ -35,16 +36,23 @@ var EventSchema =  new Schema({
         default: '',
         trim: true
     },
+    Participant: [
+        ParticipantSchema
+    ],
     Notes: {
         type: String,
         default: '',
         trim: true
     },
     PermitApplicationDate: {
-        type: Date
+        type: String,
+        default: '',
+        trim: true
     },
     PermitDateFor: {
-        type: Date
+        type: String,
+        default: '',
+        trim: true
     },
     PermitAttachment: {
         //TODO

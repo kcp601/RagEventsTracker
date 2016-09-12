@@ -1,4 +1,6 @@
-angular.module('events').controller('CreateEventModalController', function($scope, close, EventsService) {
+angular.module('events').controller('CreateEventModalController', function($scope, close, EventsService, ParticipantsService) {
+
+        $scope.participants = ParticipantsService.query();
 
         $scope.dismissModal = function(result) {
             close(result, 500); // close, but give 200ms for bootstrap to animate
@@ -12,6 +14,7 @@ angular.module('events').controller('CreateEventModalController', function($scop
                 AmountRaised: $scope.AmountRaised,
                 BankingMethod: $scope.BankingMethod,
                 HasBeenBanked: $scope.HasBeenBanked,
+                Participant: $scope.Participant,
                 BankedOn: $scope.BankedOn,
                 Notes: $scope.Notes,
                 PermitApplicationDate: $scope.PermitApplicationDate,
