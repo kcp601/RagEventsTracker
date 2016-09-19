@@ -7,21 +7,22 @@
             </div>
             <div class="modal-body">
                 <form>
-                    Event Name <input type="text" ng-model="Name" title="Name"><br>
-                    Date Of Event <input type="text" ng-model="DateOfEvent" title="Date Of Event"><br>
-                    Amount Raised <input type="text" ng-model="AmountRaised" title="AmountRaised"><br>
+                    <label>Event Name</label> <input type="text" ng-model="Name" title="Name"><br>
+                    <label>Date Of Event</label> <input type="text" ng-model="DateOfEvent" title="Date Of Event"><br>
+                    <label>Amount Raised</label> <input type="text" ng-model="AmountRaised" title="AmountRaised"><br>
                     <!-- Should be a drop down box... \/ -->
-                    Banking Method <input type="text" ng-model="BankingMethod" title="BankingMethod"><br>
-                    Has been banked? <input type="checkbox" ng-model="HasBeenBanked" title="Has Been Banked"><br>
-                    Banked On <input type="text" ng-model="BankedOn"><br>
+                    <label>Banking Method</label> <input type="text" ng-model="BankingMethod" title="BankingMethod"><br>
+                    <label>Has been banked?</label> <input type="checkbox" ng-model="HasBeenBanked" title="Has Been Banked"><br>
+                    <label ng-show="HasBeenBanked">Participant</label> <select ng-show="HasBeenBanked" data-ng-options="participant.Name for participant in participants" data-ng-model="Participant"></select><br>
+                    <label>Banked On</label> <input type="text" ng-model="BankedOn"><br>
                     <!-- Bigger input box -->
-                    Notes <input type="text" ng-model="Notes"><br>
+                    <label>Notes</label> <input type="text" ng-model="Notes"><br>
                     <!-- Make a date picker \/ -->
-                    Permit Application Date <input type="text" ng-model="PermitApplicationDate"><br>
-                    Permit Date For <input type="text" ng-model="PermitDateFor"><br>
+                    <label>Permit Application Date</label> <input type="text" ng-model="PermitApplicationDate"><br>
+                    <label>Permit Date For</label> <input type="text" ng-model="PermitDateFor"><br>
                     <!-- Attachment input (can I insert a file here?) \/ -->
-                    Permit Attachment <input type="text" ng-model="PermitAttachment"><br>
-                    City/Town Permit is for <input type="text" ng-model="CityTownPermitFor"><br>
+                    <label>Permit Attachment</label> <input type="text" ng-model="PermitAttachment"><br>
+                    <label>City/Town Permit is for</label> <input type="text" ng-model="CityTownPermitFor"><br>
                 </form>
             </div>
             <div class="modal-footer">

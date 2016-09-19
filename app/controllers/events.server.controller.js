@@ -64,6 +64,7 @@ exports.update = function(req, res) {
     event.AmountRaised = req.body.AmountRaised;
     event.BankingMethod = req.body.BankingMethod;
     event.HasBeenBanked = req.body.HasBeenBanked;
+    event.Participant = req.body.Participant;
     event.BankedOn = req.body.BankedOn;
     event.Notes = req.body.Notes;
     event.PermitApplicationDate = req.body.PermitApplicationDate;
