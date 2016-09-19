@@ -77,6 +77,7 @@ exports.update = function(req, res) {
     participant.OfflineTotal = req.body.OfflineTotal;
     participant.JustGivingTotal = req.body.JustGivingTotal;
     participant.AdventureLeader = req.body.AdventureLeader;
+    participant.LastCatchUpDate = req.body.LastCatchUpDate;
 
     participant.save(function(err) {
         if (err) {

@@ -79,6 +79,11 @@ var participantSchema = new Schema({
 		trim: true
     	// Reference Adventure leaders from adventure details
     },
+    LastCatchUpDate: {
+        type: String,
+        default: '',
+        trim: true
+    },
     creator: {
         type: Schema.ObjectId,
         ref: 'User'

@@ -1,17 +1,31 @@
 angular.module('participants').controller('ParticipantsController', ['$scope', '$routeParams', '$location', 'Authentication', 'ParticipantsService', 'ModalService',
     function($scope, $routeParams, $location, Authentication, ParticipantsService, ModalService) {
-        $scope.authentication = Authentication;       
+        $scope.authentication = Authentication;
+        var participants = ParticipantsService.query();
 
-        $scope.simplePDF = function() {
+        $scope.lastCatchUpDate60Days = function() {
             //  $scope.order.showPopupAddedToCart = !$scope.order.showPopupAddedToCart;
-            var doc = new jsPDF();
-            doc.text(20, 20, 'Hello world!');
-            doc.text(20, 30, 'This is client-side Javascript, pumping out a PDF.');
-            doc.addPage();
-            doc.text(20, 20, 'Do you like that?');
+            var columns = ["Name", "Adventure", "Adventure Leader", "Last meeting date"];
+            var rows = [];
 
-            // Save the PDF
-            doc.save('Test.pdf');
+            angular.forEach(participants, function(participant){
+                var oneDay = 24*60*60*1000;
+                var catchupDate = new Date(participant.LastCatchUpDate);
+                var now = new Date();
+
+                var diffDays = Math.round(Math.abs((catchupDate.getTime() - now.getTime())/(oneDay)));
+
+                if (diffDays > 60){
+                    var row = [participant.Name, participant.Adventure[0].Name, participant.AdventureLeader, participant.LastCatchUpDate];
+                    rows.push(row);
+                }
+            });
+
+            var doc = new jsPDF('p', 'pt');
+            doc.autoTable(columns, rows);
+
+            // Save the PDF*/
+            doc.save('LastCatchUp60Days.pdf');
         } ;
 
         $scope.addParticipant = function(){

@@ -12,6 +12,7 @@
                     Amount Raised <input type="text" ng-model="event.AmountRaised"><br>
                     Banking Method <input type="text" ng-model="event.BankingMethod"><br>
                     Has been banked <input type="checkbox" ng-model="event.HasBeenBanked"><br>
+                    FIX Participant <select data-ng-options="participant.Name for participant in participants" data-ng-model="event.Participant"></select><br>
                     Banked On <input type="text" ng-model="event.BankedOn"><br>
                     Notes <input type="text" ng-model="event.Notes"><br>
                     Permit Application date <input type="text" ng-model="event.PermitApplicationDate"><br>

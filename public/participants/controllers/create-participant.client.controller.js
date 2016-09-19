@@ -22,7 +22,8 @@ angular.module('participants').controller('CreateParticipantModalController', fu
                 TotalFundraised: $scope.TotalFundraised,
                 OfflineTotal: $scope.OfflineTotal,
                 JustGivingTotal: $scope.JustGivingTotal,
-                AdventureLeader: $scope.AdventureLeader
+                AdventureLeader: $scope.AdventureLeader,
+                LastCatchUpDate: $scope.LastCatchUpDate
             });
 
             participant.$save(function(response) {
