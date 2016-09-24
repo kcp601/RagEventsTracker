@@ -14,6 +14,7 @@ angular.module('participants').controller('ParticipantsModalController',
     };
 
     $scope.edit = function () {
+        console.log($scope.selectedParticipant);
 
         ModalService.showModal({
             templateUrl: "participants/views/edit-participant.client.view.html",

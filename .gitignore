@@ -1,6 +1,6 @@
 # Dependencies
 
-bower_components
+bower_components/*
 node_modules
 public/js
 

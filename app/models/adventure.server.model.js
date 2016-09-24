@@ -56,7 +56,7 @@ var AdventureSchema =  new Schema({
         default: '',
         trim: true
     },
-/*    OverallFundraisingTarget: {
+/*    OverallFundraisingTargetAchieved: {
         type: String,
         default: '',
         trim: true

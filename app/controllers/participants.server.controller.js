@@ -67,7 +67,7 @@ exports.update = function(req, res) {
     participant.DateOfBirth = req.body.DateOfBirth;
     participant.Email = req.body.Email;
     participant.MobileNo = req.body.MobileNo;
-    participant.Adventures = req.body.Adventures;
+    participant.Adventure = req.body.Adventure;
     participant.CatchUpDate1 = req.body.CatchUpDate1;
     participant.CatchUpDate2 = req.body.CatchUpDate2;
     participant.CatchUpDate3 = req.body.CatchUpDate3;
@@ -77,6 +77,7 @@ exports.update = function(req, res) {
     participant.OfflineTotal = req.body.OfflineTotal;
     participant.JustGivingTotal = req.body.JustGivingTotal;
     participant.AdventureLeader = req.body.AdventureLeader;
+    participant.LastCatchUpDate = req.body.LastCatchUpDate;
 
     participant.save(function(err) {
         if (err) {

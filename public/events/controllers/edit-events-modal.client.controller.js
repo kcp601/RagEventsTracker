@@ -1,7 +1,8 @@
-angular.module('events').controller('EditEventsModalController', function($scope, $location, event, Authentication){
+angular.module('events').controller('EditEventsModalController', function($scope, $location, event, Authentication, ParticipantsService){
     $scope.authentication = Authentication;
 
     $scope.event = event;
+    $scope.participants = ParticipantsService.query();
 
     $scope.print = function() {
         console.log($scope.event);

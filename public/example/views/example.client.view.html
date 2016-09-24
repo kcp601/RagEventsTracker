@@ -1,5 +1,8 @@
 <div ng-controller="ExampleController">
     <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="nav navbar-nav navbar-left">
+            <img src="../../images/rag_logo.png" style="width:100px;height=100px;margin-left:10px">
+        </div>
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header page-scroll">
@@ -73,7 +76,7 @@
                 <div class="participantDiv row" ng-if="showParticipantDiv">
                     <div class="col-md-4"></div>
                     <div class="col-md-8">
-                        <button class="btn btn-default" ng-click="simplePDF()">ParticipantsReport#1</button>
+                        <button class="btn btn-default" ng-click="lastCatchUpDate60Days()">Last Catch up above 60 days</button>
                         <button class="btn btn-success">ParticipantsReport#2</button>
                         <button class="btn btn-warning">ParticipantsReport#3</button>
                     </div>
