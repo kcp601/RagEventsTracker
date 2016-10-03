@@ -15,7 +15,7 @@ angular.module('participants').controller('ParticipantsController', ['$scope', '
 
                 var diffDays = Math.round(Math.abs((catchupDate.getTime() - now.getTime())/(oneDay)));
 
-                if (diffDays > 60){
+                if (participant.LastCatchUpDate === "" || diffDays > 60){
                     var row = [participant.Name, participant.Adventure[0].Name, participant.AdventureLeader, participant.LastCatchUpDate];
                     rows.push(row);
                 }
