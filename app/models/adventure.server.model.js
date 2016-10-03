@@ -9,7 +9,8 @@ var AdventureSchema =  new Schema({
     Name: {
         type: String,
         default: '',
-        trim: true
+        trim: true,
+        required: "Adventure can't be blank"
     },
     DepartDate: {
         type: String,
